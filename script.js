@@ -3,9 +3,9 @@ angular.module('myApp', [])
 .controller('MainCtrl', ['$scope',function($scope) {
 	
   $scope.messages = [
-    {malename: 'Malename',
-    dirtytask: 'dirtytask',
-    obnoxiouscelebrity: 'Obnoxious celebrity',
+    {malename: 'malename',
+    dirtytask: 'Dirtytask',
+    obnoxiouscelebrity: 'Obnoxious',
     jobtitle: 'Jobtitle',
     celebrity : 'Celebrity',
     hugenumber : 'Hugenumber',

@@ -12,8 +12,7 @@
 <form name="myForm">
     <body ng-app="myApp">
         <div ng-controller="MainCtrl">
-            <table ng-app ng-init="malename = 'male name';  obnoxiouscelebrity =  'Obnoxious celebrity';
-               jobtitle =  'Job Title'; celebrity =  'Celebrity'; hugenumber =  'Huge number'; tedioustask =  'Tedioustask'; uselessskill =  'Useless skill';  adjective =  'Adjective'; ">
+            <table ng-app >
                 <tr>
                     <td><img src="mad-lib-happy-face.png" width="80px"> </img></td>
                     <td>
@@ -22,23 +21,23 @@
                     </td>
                 </tr>
                 <tr><td colspan=3><h3>Provide the following words:</h3></td></tr>
-                <tr>
+                <tr ng-repeat="message in messages">
                     <td>
-                        <input type="text" ng-model="malename" required />
+                        <input type="text" ng-model="message.malename" required />
                         <span ng-show="myForm.malename.$error.required" >malename is required.</span>
                     </td>
-                    <td> <input type="text" ng-model="dirtytask" required /></td>
-                    <td> <input type="text" ng-model="obnoxiouscelebrity" required /></td>
+                    <td> <input type="text" ng-model="message.dirtytask"required /></td>
+                    <td> <input type="text" ng-model="message.obnoxiouscelebrity" required /></td>
                 </tr>
-                <tr>
-                    <td> <input type="text" ng-model="jobtitle" required /></td>
-                    <td> <input type="text" ng-model="celebrity" required /></td>
-                    <td> <input type="text" ng-model="hugenumber" required /></td>
+                <tr ng-repeat="message in messages">
+                    <td> <input type="text" ng-model="message.jobtitle" required /></td>
+                    <td> <input type="text" ng-model="message.celebrity" required /></td>
+                    <td> <input type="text" ng-model="message.hugenumber" ng-init="messages.hugenumber = 'Huge Number';" required /></td>
                 </tr>
-                <tr>
-                    <td> <input type="text" ng-model="tedioustask" required /></td>
-                    <td> <input type="text" ng-model="uselessskill" required /></td>
-                    <td> <input type="text" ng-model="adjective" required /></td>
+                <tr ng-repeat="message in messages">
+                    <td> <input type="text" ng-model="message.tedioustask"  required /></td>
+                    <td> <input type="text" ng-model="message.uselessskill"  required /></td>
+                    <td> <input type="text" ng-model="message.adjective"  required /></td>
                     <td><hr></hr></td>
                 </tr>
                 <tr>
@@ -55,23 +54,23 @@
                     <br />
                 </tr>
                 <br /> <br />
-                <tr>
+                <tr ng-repeat="message in messages">
 
                     <td colspan=3>
-                        <span>{{ malename }}</span>
+                        <span>{{ message.malename }}</span>
 
-                        was a {{ jobtitle }} who loved technology.
+                        was a {{ message.jobtitle }} who loved technology.
                         Although he loved parts of his job, he absolutely hated
-                        {{ tedioustask }} and {{ dirtytask }}. So {{ malename }}
-                        met with his life mentor {{ celebrity }} who told him to
-                        learn how to {{ uselessskill }} with Thinkful. Thinkful
-                        didn't offer a course on {{ uselessskill }} so he studied
+                        {{ message.tedioustask }} and {{ message.dirtytask }}. So {{ message.malename }}
+                        met with his life mentor {{ message.celebrity }} who told him to
+                        learn how to {{ message.uselessskill }} with Thinkful. Thinkful
+                        didn't offer a course on {{ message.uselessskill }} so he studied
                         programming instead.
 
                         What a great decision! With his new skills, {{ message.malename}}
-                        built a(n) {{ adjective }} robot named {{ obnoxiouscelebrity }}
+                        built a(n) {{ message.adjective }} robot named {{ message.obnoxiouscelebrity }}
                         that not only loved {{ dirtytask }}
-                        but did it {{ hugenumber }} faster.
+                        but did it {{ message.hugenumber }} faster.
 
                     </td>
 
