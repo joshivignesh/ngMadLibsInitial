@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <script data-require="angular.js@1.3.10" data-semver="1.3.10" src="https://code.angularjs.org/1.3.10/angular.js"></script>
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="script.js"></script>
+  </head>
+
+<form name="myForm">
+    <body ng-app="myApp">
+        <div ng-controller="MainCtrl">
+            <table ng-app >
+                <tr>
+                    <td><img src="mad-lib-happy-face.png" width="80px"> </img></td>
+                    <td>
+                        <img src="ngMadLibs.png" width="80px"></img> <br>
+                        <h1>Automate This!</h1>
+                    </td>
+                </tr>
+                <tr><td colspan=3></td></tr>
+                <tr ng-repeat="message in messages">
+                    <td colspan="3">
+                        <p>
+                            {{ message.malename }} was a {{message.jobtitle}} who loved technology.
+                            Although he/she loved parts of his/her job, he/she
+                            absolutely hated {{message.tedioustask}} and {{message.dirtytask}}.
+                            So, {{message.malename}} met with his/her life mentor {{message.celebrity}}
+                            who told himher to learn how to {{message.uselessskill}} with
+                            Thinkful. Thinkful didn't offer a course on {{message.uselessskill}}
+                            so he/she studied programming instead.
+
+                            What a great decision! With his/her new skills,
+                            {{message.malename}} built a(n) {{message.adjective}} robot named
+                            {{message.obnoxiouscelebrity}} that not only loved {{message.dirtytask}}
+                            but did it {{message.hugenumber}} faster.
+                        </p>
+                    </td>
+                   
+                </tr>
+              
+                <tr>
+                    <td colspan=3><hr></hr></td>
+
+                </tr>
+                <tr>
+                    <td colspan=3>
+                        <button type="submit" class="btn btn-primary center-block"
+                                value="submit" title="submit" >
+                            <span>Generate My Mad Lib</span>
+                        </button>
+                    </td>
+                    <br />
+                </tr>
+                <br /> <br />
+                <tr ng-repeat="message in messages">
+
+                    <td colspan=3>
+                        <span>{{ message.malename }}</span>
+
+                        was a {{ message.jobtitle }} who loved technology.
+                        Although he loved parts of his job, he absolutely hated
+                        {{ message.tedioustask }} and {{ message.dirtytask }}. So {{ message.malename }}
+                        met with his life mentor {{ message.celebrity }} who told him to
+                        learn how to {{ message.uselessskill }} with Thinkful. Thinkful
+                        didn't offer a course on {{ message.uselessskill }} so he studied
+                        programming instead.
+
+                        What a great decision! With his new skills, {{ message.malename}}
+                        built a(n) {{ message.adjective }} robot named {{ message.obnoxiouscelebrity }}
+                        that not only loved {{ dirtytask }}
+                        but did it {{ message.hugenumber }} faster.
+
+                    </td>
+
+                </tr>
+            </table>
+
+
+
+        </div>
+    </body>
+</form>
+</html>

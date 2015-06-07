@@ -1,9 +1,14 @@
 // Code goes here
 angular.module('myApp', [])
 .controller('MainCtrl', ['$scope',function($scope) {
-	
+  
+    $scope.custom = true;
+        $scope.toggleCustom = function() {
+            $scope.custom = $scope.custom === false ? true: false;
+        };
+
   $scope.messages = [
-    {malename: 'malename',
+    {malename: '',
     dirtytask: 'Dirtytask',
     obnoxiouscelebrity: 'Obnoxious',
     jobtitle: 'Jobtitle',
@@ -16,4 +21,7 @@ angular.module('myApp', [])
   }
   ];
 
+
+
 }]);
+

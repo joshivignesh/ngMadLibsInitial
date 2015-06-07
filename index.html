@@ -9,75 +9,97 @@
     <script src="script.js"></script>
   </head>
 
-<form name="myForm">
+<form name="myForm" >
     <body ng-app="myApp">
-        <div ng-controller="MainCtrl">
-            <table ng-app >
-                <tr>
-                    <td><img src="mad-lib-happy-face.png" width="80px"> </img></td>
-                    <td>
-                        <img src="ngMadLibs.png" width="80px"></img> <br>
-                        <h1>Automate This!</h1>
-                    </td>
-                </tr>
-                <tr><td colspan=3><h3>Provide the following words:</h3></td></tr>
-                <tr ng-repeat="message in messages">
-                    <td>
-                        <input type="text" ng-model="message.malename" required />
-                        <span ng-show="myForm.malename.$error.required" >malename is required.</span>
-                    </td>
-                    <td> <input type="text" ng-model="message.dirtytask"required /></td>
-                    <td> <input type="text" ng-model="message.obnoxiouscelebrity" required /></td>
-                </tr>
-                <tr ng-repeat="message in messages">
-                    <td> <input type="text" ng-model="message.jobtitle" required /></td>
-                    <td> <input type="text" ng-model="message.celebrity" required /></td>
-                    <td> <input type="text" ng-model="message.hugenumber" ng-init="messages.hugenumber = 'Huge Number';" required /></td>
-                </tr>
-                <tr ng-repeat="message in messages">
-                    <td> <input type="text" ng-model="message.tedioustask"  required /></td>
-                    <td> <input type="text" ng-model="message.uselessskill"  required /></td>
-                    <td> <input type="text" ng-model="message.adjective"  required /></td>
-                    <td><hr></hr></td>
-                </tr>
-                <tr>
-                    <td colspan=3><hr></hr></td>
+    <div ng-controller="MainCtrl" >
+        <table ng-hide="custom">
+            <tr>
+                <td><img src="mad-lib-happy-face.png" width="80px"> </img></td>
+                <td>
+                    <img src="ngMadLibs.png" width="80px"></img> <br>
+                    <h1>Automate This!</h1>
+                </td>
+            </tr>
+            <tr><td colspan=3></td></tr>
+            <tr ng-repeat="message in messages">
+                <td colspan="3">
+                    <p>
+                        {{ message.malename }} was a {{message.jobtitle}} who loved technology.
+                        Although he/she loved parts of his/her job, he/she
+                        absolutely hated {{message.tedioustask}} and {{message.dirtytask}}.
+                        So, {{message.malename}} met with his/her life mentor {{message.celebrity}}
+                        who told himher to learn how to {{message.uselessskill}} with
+                        Thinkful. Thinkful didn't offer a course on {{message.uselessskill}}
+                        so he/she studied programming instead.
 
-                </tr>
-                <tr>
-                    <td colspan=3>
-                        <button type="submit" class="btn btn-primary center-block"
-                                value="submit" title="submit" >
-                            <span>Submit</span>
-                        </button>
-                    </td>
-                    <br />
-                </tr>
-                <br /> <br />
-                <tr ng-repeat="message in messages">
+                        What a great decision! With his/her new skills,
+                        {{message.malename}} built a(n) {{message.adjective}} robot named
+                        {{message.obnoxiouscelebrity}} that not only loved {{message.dirtytask}}
+                        but did it {{message.hugenumber}} faster.
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan=3><hr></hr></td>
 
-                    <td colspan=3>
-                        <span>{{ message.malename }}</span>
+            </tr>
+            <tr>
+                <td colspan=3>
+                    <button type="submit" class="btn btn-primary center-block"
+                            value="submit" title="submit" ng-click="toggleCustom()">
+                        <span>Start over</span>
+                    </button>
+                </td>
+                <br />
+            </tr>
+            <br />
+            <br />
+        </table>
 
-                        was a {{ message.jobtitle }} who loved technology.
-                        Although he loved parts of his job, he absolutely hated
-                        {{ message.tedioustask }} and {{ message.dirtytask }}. So {{ message.malename }}
-                        met with his life mentor {{ message.celebrity }} who told him to
-                        learn how to {{ message.uselessskill }} with Thinkful. Thinkful
-                        didn't offer a course on {{ message.uselessskill }} so he studied
-                        programming instead.
+        <table ng-hide="!custom">
+            <tr>
+                <td><img src="mad-lib-happy-face.png" width="80px"> </img></td>
+                <td>
+                    <img src="ngMadLibs.png" width="80px"></img> <br>
+                    <h1>Automate This!</h1>
+                </td>
+            </tr>
+            <tr><td colspan=3><h3>Provide the following words:</h3></td></tr>
+            <tr ng-repeat="message in messages">
+                <td>
+                    <input type="text" ng-model="message.malename" required />
+                    <span ng-show="myForm.malename.$error.required">malename is required.</span>
+                </td>
+                <td> <input type="text" ng-model="message.dirtytask" required /></td>
+                <td> <input type="text" ng-model="message.obnoxiouscelebrity" required /></td>
+            </tr>
+            <tr ng-repeat="message in messages">
+                <td> <input type="text" ng-model="message.jobtitle" required /></td>
+                <td> <input type="text" ng-model="message.celebrity" required /></td>
+                <td> <input type="text" ng-model="message.hugenumber" required /></td>
+            </tr>
+            <tr ng-repeat="message in messages">
+                <td> <input type="text" ng-model="message.tedioustask" required /></td>
+                <td> <input type="text" ng-model="message.uselessskill" required /></td>
+                <td> <input type="text" ng-model="message.adjective" required /></td>
+                <td><hr></hr></td>
+            </tr>
+            <tr>
+                <td colspan=3><hr></hr></td>
 
-                        What a great decision! With his new skills, {{ message.malename}}
-                        built a(n) {{ message.adjective }} robot named {{ message.obnoxiouscelebrity }}
-                        that not only loved {{ dirtytask }}
-                        but did it {{ message.hugenumber }} faster.
-
-                    </td>
-
-                </tr>
-            </table>
-
-
+            </tr>
+            <tr>
+                <td colspan=3>
+                    <button type="submit" class="btn btn-primary center-block"
+                            value="submit" title="submit" ng-click="myForm.$valid && toggleCustom()">
+                        <span>Generate My Mad Lib</span>
+                    </button>
+                </td>
+                <br />
+            </tr>
+            <br />
+            <br />
+        </table>
 
         </div>
     </body>
